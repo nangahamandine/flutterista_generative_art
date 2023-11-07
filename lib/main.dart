@@ -1,10 +1,11 @@
 import 'dart:math';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(home: Scaffold(body: GenerativeHearts())));
+void main() => runApp(const MaterialApp(home: Scaffold(body: GenerativeHearts())));
 
 class GenerativeHearts extends StatelessWidget {
+  const GenerativeHearts({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -36,7 +37,7 @@ class HeartPainter extends CustomPainter {
       center: Alignment.center,
       radius: 0.5,
       colors: [Colors.grey.shade900, Colors.black],
-      stops: [0.0, 1.0],
+      stops: const [0.0, 1.0],
     );
 
     Paint gradientPaint = Paint()..shader = gradient.createShader(
@@ -44,20 +45,19 @@ class HeartPainter extends CustomPainter {
 
     canvas.drawRect(Rect.fromLTRB(0, 0, size.width, size.height), gradientPaint);
 
-    // Adjust the following variables for the "bun" effect
     final double baseOvalWidth = size.width * 0.25;
     final double baseOvalHeight = size.height * 0.25;
-    final int layers = 5; // Number of heart layers
+    const int layers = 5; // Number of heart layers
     final double layerSpacing = size.width * 0.03; // Spacing between each layer
 
-    // Draw multiple layers of hearts
+    // Multiple layers of hearts
     for (int j = 0; j < layers; j++) {
       double ovalWidth = baseOvalWidth - j * layerSpacing;
       double ovalHeight = baseOvalHeight - j * layerSpacing;
 
-      // Position it slightly above the center
+      // To position art slightly above the center
       final Offset ovalCenter = size.center(Offset(0, -size.height * 0.05 - j * layerSpacing / 2));
-      final int heartCount = 100;
+      const int heartCount = 100;
 
       for (int i = 0; i < heartCount; i++) {
         double angle = (2 * pi / heartCount) * i;
@@ -65,7 +65,7 @@ class HeartPainter extends CustomPainter {
         double y = ovalCenter.dy + ovalHeight * sin(angle);
         double rotationAngle = atan2(ovalHeight * cos(angle), -ovalWidth * sin(angle));
 
-        // Size of the hearts will be proportional to the size of the oval
+        // Size of the hearts proportional to the size of the oval
         double width = ovalWidth / 10;
         double height = width * 1.2;
 
