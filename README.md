@@ -1,6 +1,7 @@
 # Nangah Amandine's Generative HeARTs
 
-##Welcome to my Generative Art, created with Dart (Flutter). 
+##Welcome to my Generative Art, created with Dart (Flutter).
+
 This project is a celebration of the spirit of love, infused with the essence and vibrancy of African art. 
 It is a visual symphony that captures the enigmatic allure of the continent's cultural heritage while symbolizing the universal language of love through its heart motifs.
 
